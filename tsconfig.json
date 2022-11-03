@@ -3,6 +3,9 @@
     "noEmit": true,
     "allowJs": true,
     "checkJs": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "js/*": ["./js/*"]
+    }
   }
 }

@@ -1,7 +1,17 @@
 {
   "env": {
     "development": {
-      "presets": ["@babel/preset-env"]
+      "presets": ["@babel/preset-env"],
+      "plugins": [
+        [
+          "babel-plugin-module-resolver",
+          {
+            "alias": {
+              "js": "./js"
+            }
+          }
+        ]
+      ]
     }
   }
 }

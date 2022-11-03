@@ -19,6 +19,7 @@ tabnew
 tabnew
 tabnew
 tabnew
+tabnew
 tabrewind
 edit .gitignore
 argglobal
@@ -180,6 +181,13 @@ keepjumps 10
 normal! 019|
 tabnext
 edit js/index.js
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -191,12 +199,32 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 17 - ((16 * winheight(0) + 20) / 41)
+let s:l = 5 - ((4 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 17
-normal! 011|
+keepjumps 5
+normal! 033|
+tabnext
+edit js/function/tokenGet.js
+argglobal
+balt js/index.js
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 20) / 41)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
 tabnext
 edit js/router/index.js
 argglobal
@@ -224,10 +252,11 @@ badd +28 .eslintrc.json
 badd +4 .prettierrc
 badd +4 .babelrc
 badd +6 tsconfig.json
-badd +17 js/index.js
+badd +5 js/index.js
 badd +1 .env.development
 badd +6 js/view/index.ejs
 badd +5 js/router/index.js
+badd +1 js/function/tokenGet.js
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
