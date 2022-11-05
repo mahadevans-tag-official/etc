@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "development:server": "env NODE_ENV=development node_modules/nodemon/bin/nodemon.js -L --exec node_modules/@babel/node/bin/babel-node.js -w js -e js js"
+    "development:js:server": "env NODE_ENV=development node_modules/nodemon/bin/nodemon.js -L --exec node_modules/@babel/node/bin/babel-node.js -w js -e js js",
+    "development:py:server": "npm config set script-shell \"zsh\"; source ./bin/activate; tabpy",
+    "development:py:client": "npm config set script-shell \"zsh\"; node_modules/nodemon/bin/nodemon.js -L --exec python -w py/index.py py/index.py"
   },
   "author": "",
   "license": "ISC",

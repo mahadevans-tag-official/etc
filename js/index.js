@@ -12,11 +12,12 @@ dotenv.config({ path: `.env.${nodeEnv}` });
 const port = process.env.PORT;
 
 (async () => {
-  const token = await tokenGet();
+  //const token = await tokenGet();
 
   return express()
     .set('view engine', 'ejs')
     .set('views', path.join(process.cwd(), 'js/view'))
+    .use(express.json())
     .use('/', routerGet())
     .get('*', (request, response) =>
       response.render('index', { title: process.env.npm_package_name })
